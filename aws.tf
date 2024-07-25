@@ -19,7 +19,7 @@ locals {
   bu1_bastion_user_data = <<EOF
 #!/bin/bash
 sudo hostnamectl set-hostname "BU1-Bastion"
-sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+sudo sed -i 's/#PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 sudo echo 'ubuntu:${var.ace_password}' | /usr/sbin/chpasswd
 sudo apt update -y
 sudo apt upgrade -y
